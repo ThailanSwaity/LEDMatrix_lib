@@ -50,6 +50,8 @@ void init(void) {
   cells[5][3] = cells[5][4] = 1;
   cells[7][3] = cells[7][4] = 1;
   
-  draw_cells(cells, dataPin, latchPin, clockPin);
+  while(1) {
+    draw_cells(cells, dataPin, latchPin, clockPin);
+  }
 
 }
