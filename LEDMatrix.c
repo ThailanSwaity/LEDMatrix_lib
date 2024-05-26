@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <time.h>
+
 #include "matrix_draw.h"
 
 #define dataPin  0 // DS Pin of 74HC595
@@ -35,22 +37,36 @@ void init(void) {
 
   int cells[COLS][ROWS] = {0};
 
-  cells[3][0] = cells[3][7] = 1;
-  cells[4][0] = cells[4][7] = 1;
-  cells[5][0] = cells[5][7] = 1;
+//  cells[3][0] = cells[3][7] = 1;
+//  cells[4][0] = cells[4][7] = 1;
+//  cells[5][0] = cells[5][7] = 1;
+//
+//  cells[2][1] = cells[2][6] = 1;
+//  cells[6][1] = cells[6][6] = 1;
+//
+//  cells[1][2] = cells[1][5] = 1;
+//  cells[3][2] = cells[3][5] = 1;
+//  cells[7][2] = cells[7][5] = 1;
+//
+//  cells[1][3] = cells[1][4] = 1;
+//  cells[5][3] = cells[5][4] = 1;
+//  cells[7][3] = cells[7][4] = 1;
 
-  cells[2][1] = cells[2][6] = 1;
-  cells[6][1] = cells[6][6] = 1;
-
-  cells[1][2] = cells[1][5] = 1;
-  cells[3][2] = cells[3][5] = 1;
-  cells[7][2] = cells[7][5] = 1;
-
-  cells[1][3] = cells[1][4] = 1;
-  cells[5][3] = cells[5][4] = 1;
-  cells[7][3] = cells[7][4] = 1;
+  time_t last_update_time;
+  int index = 0;
   
   while(1) {
+    last_update_time = time(NULL);
+
+    if (time(NULL) - last_update_time >= 1) {
+      cells[index % COLS][index / ROWS] = 1;
+       
+      index++;
+      if (index > COLS * ROWS) {
+        index = 0;
+      }
+    }
+
     draw_cells(cells, dataPin, latchPin, clockPin);
   }
 
