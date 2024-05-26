@@ -20,7 +20,7 @@ void init(void);
 
 int main(void) {
 
-  wirintPiSetup();
+  wiringPiSetup();
 
   pinMode(dataPin, OUTPUT);
   pinMode(latchPin, OUTPUT);
