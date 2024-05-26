@@ -12,7 +12,7 @@ void draw_cells(int cells[ROWS][COLS], int dataPin, int latchPin, int clockPin) 
   unsigned char x = 0x80;
   for (i = 0; i < ROWS; i++) {
     digitalWrite(latchPin, LOW);
-    _shiftOut(dataPin, clockPin, MSBFIRST, cells[ROWS]);
+    _shiftOut_col(dataPin, clockPin, MSBFIRST, cells[ROWS]);
     _shiftOut(dataPin, clockPin, MSBFIRST, ~x);
     digitalWrite(latchPin, HIGH);
     x>>=1;
@@ -20,7 +20,7 @@ void draw_cells(int cells[ROWS][COLS], int dataPin, int latchPin, int clockPin) 
   }
 }
 
-void _shiftOut(int dPin, int cPin, int order, int col[COLS]) {
+void _shiftOut_col(int dPin, int cPin, int order, int col[COLS]) {
   int i;
   for (i = 0; i < COLS; i++) {
     digitalWrite(cPin, LOW);
