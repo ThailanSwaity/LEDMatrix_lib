@@ -25,6 +25,8 @@ void _shiftOut_col(int dPin, int cPin, int order, int col[ROWS]) {
       digitalWrite(dPin, col[ROWS - i] ? HIGH : LOW);
       delayMicroseconds(10);
     }
+    digitalWrite(cPin, HIGH);
+    delayMicroseconds(10);
   }
 }
 
