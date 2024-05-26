@@ -52,11 +52,10 @@ void init(void) {
 //  cells[5][3] = cells[5][4] = 1;
 //  cells[7][3] = cells[7][4] = 1;
 
-  time_t last_update_time;
+  time_t last_update_time = time(0);
   int index = 0;
   
   while(1) {
-    last_update_time = time(0);
 
     if (time(0) - last_update_time >= 1) {
       cells[index % COLS][index / ROWS] = 1;
