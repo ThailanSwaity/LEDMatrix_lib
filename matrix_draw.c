@@ -33,3 +33,18 @@ void _shiftOut(int dPin, int cPin, int order, int col[COLS]) {
     }
   }
 }
+
+void _shiftOut(int dPin, int cPin, int order, int val) {
+  int i;
+  for (i = 0; i < 8; i++) {
+    digitalWrite(cPin, LOW);
+    if (order == LSBFIRST) {
+      digitalWrite(dPin, ((0x01&(val>>i)) == 0x01) ? HIGH : LOW);
+      delayMicroseconds(10);
+    } else {
+      digitalWrite(dPin, ((0x80&(val<<i)) == 0x80) ? HIGH : LOW);
+    }
+    digitalWrite(cPin, HIGH);
+    delayMicroseconds(10);
+  }
+}
