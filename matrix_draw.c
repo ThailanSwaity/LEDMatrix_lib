@@ -1,18 +1,12 @@
 #include "matrix_draw.h"
 
 void draw_cells(int cells[COLS][ROWS], int dataPin, int latchPin, int clockPin) {
-  int i, j;
-  for (i = 0; i < COLS; i++) {
-    for (j = 0; j < ROWS; j++) {
-      printf("%d ", cells[i][j]);
-    }
-    printf("\n");
-  }
+  int i;
 
   unsigned char x = 0x80;
   for (i = 0; i < COLS; i++) {
     digitalWrite(latchPin, LOW);
-    _shiftOut_col(dataPin, clockPin, MSBFIRST, cells[i]);
+    _shiftOut_col(dataPin, clockPin, MSBFIRST, cells[i]); // Shifts out the array of all the column cells
     _shiftOut(dataPin, clockPin, MSBFIRST, ~x);
     digitalWrite(latchPin, HIGH);
     x>>=1;

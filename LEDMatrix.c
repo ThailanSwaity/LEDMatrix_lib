@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "matrix_draw.h"
 
+#define dataPin  0 // DS Pin of 74HC595
+#define latchPin 2 // ST_CP Pin of 74HC595
+#define clockPin 3 // SH_CP Pin of 74HC595
+
 // column data of the smily face
 unsigned char pic[]={0x1c,0x22,0x51,0x45,0x45,0x51,0x22,0x1c};
                     //0    0    1    1    1    1    0    0
@@ -15,6 +19,12 @@ unsigned char pic[]={0x1c,0x22,0x51,0x45,0x45,0x51,0x22,0x1c};
 void init(void);
 
 int main(void) {
+
+  wirintPiSetup();
+
+  pinMode(dataPin, OUTPUT);
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
 
   init();
 
@@ -40,6 +50,6 @@ void init(void) {
   cells[5][3] = cells[5][4] = 1;
   cells[7][3] = cells[7][4] = 1;
   
-  draw_cells(cells);
+  draw_cells(cells, dataPin, latchPin, clockPin);
 
 }
