@@ -23,7 +23,7 @@ int main(void) {
 
 void init(void) {
 
-  int cells[ROWS][COLS] = {0};
+  int cells[COLS][ROWS] = {0};
 
   cells[3][0] = cells[3][7] = 1;
   cells[4][0] = cells[4][7] = 1;
