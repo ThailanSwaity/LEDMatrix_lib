@@ -39,6 +39,7 @@ void _shiftOut(int dPin, int cPin, int order, int val) {
       delayMicroseconds(10);
     } else {
       digitalWrite(dPin, ((0x80&(val<<i)) == 0x80) ? HIGH : LOW);
+      delayMicroseconds(10);
     }
     digitalWrite(cPin, HIGH);
     delayMicroseconds(10);
