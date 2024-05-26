@@ -65,6 +65,7 @@ void init(void) {
       if (index > COLS * ROWS) {
         index = 0;
       }
+      last_update_time = time(NULL);
     }
 
     draw_cells(cells, dataPin, latchPin, clockPin);
