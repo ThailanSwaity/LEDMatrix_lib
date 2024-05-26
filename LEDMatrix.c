@@ -56,16 +56,16 @@ void init(void) {
   int index = 0;
   
   while(1) {
-    last_update_time = time(NULL);
+    last_update_time = time(0);
 
-    if (time(NULL) - last_update_time >= 1) {
+    if (time(0) - last_update_time >= 1) {
       cells[index % COLS][index / ROWS] = 1;
        
       index++;
       if (index > COLS * ROWS) {
         index = 0;
       }
-      last_update_time = time(NULL);
+      last_update_time = time(0);
     }
 
     draw_cells(cells, dataPin, latchPin, clockPin);
