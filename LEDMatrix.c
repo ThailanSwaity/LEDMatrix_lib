@@ -19,7 +19,7 @@ unsigned char pic[]={0x1c,0x22,0x51,0x45,0x45,0x51,0x22,0x1c};
                     //0    0    1    1    1    1    0    0
                     //0    0    0    0    0    0    0    0
 //
-time_t last_update_time;
+clock_t last_update_time;
 int cells[COLS][ROWS] = {0};
 int debug_index;
 
@@ -64,16 +64,16 @@ void run(void) {
   cells[1][5] = 1;
   cells[2][5] = 1;
 
-  last_update_time = time(0);
+  last_update_time = clock();
   debug_index = 0;
   
   while(1) {
 
     // Updates every second
-    if (time(0) - last_update_time >= 1) {
+    if (clock() - last_update_time >= 10000) {
       update();
 
-      last_update_time = time(0);
+      last_update_time = clock();
     }
 
     draw_cells(cells, dataPin, latchPin, clockPin);
@@ -82,7 +82,7 @@ void run(void) {
 }
 
 void update(void) {
-  int t_cells[COS][ROWS] = {0};
+  int t_cells[COLS][ROWS] = {0};
 
   int col, row;
   for (col = 0; col < COLS; col++) {
