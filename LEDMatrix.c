@@ -25,7 +25,7 @@ int debug_index;
 void run(void);
 void update(void);
 void debug_graphic(void);
-int neighours(int col, int row);
+int neighbours(int col, int row);
 int modulo(int x, int N);
 
 int main(void) {
