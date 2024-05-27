@@ -58,11 +58,11 @@ void run(void) {
 //  cells[5][3] = cells[5][4] = 1;
 //  cells[7][3] = cells[7][4] = 1;
   
-  cells[1][7] = 1;
-  cells[2][6] = 1;
-  cells[0][5] = 1;
-  cells[1][5] = 1;
-  cells[2][5] = 1;
+  cells[6][7] = 1;
+  cells[7][6] = 1;
+  cells[5][5] = 1;
+  cells[6][5] = 1;
+  cells[7][5] = 1;
 
   last_update_time = clock();
   debug_index = 0;
@@ -70,7 +70,7 @@ void run(void) {
   while(1) {
 
     // Updates every second
-    if (clock() - last_update_time >= 10000) {
+    if (clock() - last_update_time >= 300000) {
       update();
 
       last_update_time = clock();
