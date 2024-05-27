@@ -72,7 +72,7 @@ void run(void) {
 }
 
 void update(void) {
-    cells[index % COLS][index / ROWS] = 1;
+    cells[debug_index % COLS][debug_index / ROWS] = 1;
       
     debug_index++;
     if (debug_index > COLS * ROWS) {
