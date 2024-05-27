@@ -70,7 +70,7 @@ void run(void) {
   while(1) {
 
     // Updates every second
-    if (clock() - last_update_time >= 300000) {
+    if (clock() - last_update_time >= 30000) {
       update();
 
       last_update_time = clock();
