@@ -65,6 +65,8 @@ void run(void) {
 
   last_update_time = time(0);
   debug_index = 0;
+
+  printf("Neighbours of cell col: 1, row: 2.. %d", neighbours(1, 2));
   
   while(1) {
 
