@@ -65,8 +65,6 @@ void run(void) {
 
   last_update_time = time(0);
   debug_index = 0;
-
-  printf("Neighbours of cell col: 1, row: 2.. %d", neighbours(1, 2));
   
   while(1) {
 
@@ -83,7 +81,26 @@ void run(void) {
 }
 
 void update(void) {
+  int t_cells[COS][ROWS] = {0};
 
+  int col, row;
+  for (col = 0; col < COLS; col++) {
+    for (row = 0; row < ROWS; row++) {
+      int nbours = neighbours(col, row);
+      if (cells[col][row] && nbours < 2) {
+        t_cells[col][row] = 0;
+      } else if (cells[col][row] && (nbours == 2 || nbours == 3)) {
+        t_cells[col][row] = 1;
+      } else if (cells[col][row] && nbours > 3) {
+        t_cells[col][row] = 0;
+      } else if (!cells[col][row] && nbours == 3) {
+        t_cells[col][row] = 1;
+      }
+    }
+  }
+
+  // Copy memory from the temp array to the array used to display
+  memcpy(&cells, &t_cells, sizeof(cells));
 }
 
 void debug_graphic(void) {
