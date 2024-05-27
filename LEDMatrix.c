@@ -25,6 +25,8 @@ int debug_index;
 void run(void);
 void update(void);
 void debug_graphic(void);
+int neighours(int col, int row);
+int modulo(int x, int N);
 
 int main(void) {
 
@@ -89,4 +91,25 @@ void debug_graphic(void) {
     if (debug_index > COLS * ROWS) {
       debug_index = 0;
     }
+}
+
+int neighbours(int col, int row) {
+  int i, j;
+  int nbours = 0;
+  for (i = -1; i < 2; i++) {
+    int x = modulo(col + i, COLS);
+    for (j = -1; j < 2; j++) {
+      int y = modulo(row + j, ROWS);
+      if (!(i == 0 && j == 0)) {
+        if (cells[x][y]) {
+          nbours++;
+        }
+      }
+    }
+  }
+  return nbours;
+}
+
+int modulo(int x, int N) {
+  return (x % N + N) % N;
 }
