@@ -8,6 +8,7 @@ All of the schematics are from the [Freenove Super Starter Kit for Raspberry Pi 
 ![20240527_15h46m09s_grim](https://github.com/ThailanSwaity/LEDMatrix_lib/assets/44379381/1faf0cd7-2775-4efa-b059-5f5d403a5c20)
 
 ![20240527_15h26m02s_grim](https://github.com/ThailanSwaity/LEDMatrix_lib/assets/44379381/cedb8cf2-8295-43e8-8653-04cf00acf7ed)
+![20240527_18h51m16s_grim](https://github.com/ThailanSwaity/LEDMatrix_lib/assets/44379381/f94c32fe-a3db-4d1d-8389-f29f19d024d1)
 ![20240527_15h26m34s_grim](https://github.com/ThailanSwaity/LEDMatrix_lib/assets/44379381/64c8b244-d7a3-491c-9e4e-fd288d487598)
 
 # Software
