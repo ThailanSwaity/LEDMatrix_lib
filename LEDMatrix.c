@@ -24,6 +24,7 @@ int debug_index;
 
 void run(void);
 void update(void);
+void debug_graphic(void);
 
 int main(void) {
 
@@ -39,20 +40,26 @@ int main(void) {
 }
 
 void run(void) {
-  cells[3][0] = cells[3][7] = 1;
-  cells[4][0] = cells[4][7] = 1;
-  cells[5][0] = cells[5][7] = 1;
-
-  cells[2][1] = cells[2][6] = 1;
-  cells[6][1] = cells[6][6] = 1;
-
-  cells[1][2] = cells[1][5] = 1;
-  cells[3][2] = cells[3][5] = 1;
-  cells[7][2] = cells[7][5] = 1;
-
-  cells[1][3] = cells[1][4] = 1;
-  cells[5][3] = cells[5][4] = 1;
-  cells[7][3] = cells[7][4] = 1;
+//  cells[3][0] = cells[3][7] = 1;
+//  cells[4][0] = cells[4][7] = 1;
+//  cells[5][0] = cells[5][7] = 1;
+//
+//  cells[2][1] = cells[2][6] = 1;
+//  cells[6][1] = cells[6][6] = 1;
+//
+//  cells[1][2] = cells[1][5] = 1;
+//  cells[3][2] = cells[3][5] = 1;
+//  cells[7][2] = cells[7][5] = 1;
+//
+//  cells[1][3] = cells[1][4] = 1;
+//  cells[5][3] = cells[5][4] = 1;
+//  cells[7][3] = cells[7][4] = 1;
+  
+  cells[1][7] = 1;
+  cells[2][6] = 1;
+  cells[0][5] = 1;
+  cells[1][5] = 1;
+  cells[2][5] = 1;
 
   last_update_time = time(0);
   debug_index = 0;
@@ -72,6 +79,10 @@ void run(void) {
 }
 
 void update(void) {
+
+}
+
+void debug_graphic(void) {
     cells[debug_index % COLS][debug_index / ROWS] = 1;
       
     debug_index++;
