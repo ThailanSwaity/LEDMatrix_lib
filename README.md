@@ -27,6 +27,7 @@ If everything is complete, you should see a glider moving across the LED Matrix 
 
 # Notes
 - I used this on a RPi Zero W, but it should work for other Pis that fit this same Pin layout.
+- When testing connections to the LED Matrix, it is useful to use the debug function. It fills out all pixels in order starting at the origin.
 - When tinkering, be sure to consider the coordinate layout for the LED display. Relative to the location of the label, the layout looks something like this:
 
 ![LEDMatrixCoordinateDiagram](https://github.com/ThailanSwaity/LEDMatrix_lib/assets/44379381/0cc9b4ff-1a87-459f-9b30-713f8785f63b)
